@@ -1,9 +1,8 @@
-import { Observable } from 'rxjs';
+import { interval } from 'rxjs';
 
-const observable = new Observable(() => {
-  setInterval(() => {
-    console.log('Our first Observable <3');
-  }, 3000);
-});
+const observable = interval(1000);
+const subscription = observable.subscribe(x => console.log('Our ' + x + ' observable <3'));
 
-observable.subscribe();
+setTimeout(() => {
+  subscription.unsubscribe();
+}, 5000);
