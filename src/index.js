@@ -1,7 +1,9 @@
 import { Observable } from 'rxjs';
 
 const observable = new Observable(() => {
-  console.log('Our first Observable <3');
+  setInterval(() => {
+    console.log('Our first Observable <3');
+  }, 3000);
 });
 
 observable.subscribe();
